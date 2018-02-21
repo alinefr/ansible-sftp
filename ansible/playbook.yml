@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars/sftp-server.yml
+  gather_facts: False
+
+  pre_tasks:
+    - raw: test -e /usr/bin/python || (apt-get -y update && apt-get install -y python-minimal)
+      register: output
+      changed_when: output.stdout != ""
+    - raw: test -e /usr/bin/pip || (apt-get -y update && apt-get install -y python-pip)
+      register: output
+      changed_when: output.stdout != ""
+    - name: Gathering Facts
+      setup:
+
+  roles:
+    - johanmeiring.sftp-server

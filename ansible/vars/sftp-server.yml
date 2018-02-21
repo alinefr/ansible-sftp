@@ -1,0 +1,6 @@
+- sftp_allow_passwords: true
+- sftp_users:
+  - name: peter
+    shell: False
+    sftp_directories:
+      - /var/www
