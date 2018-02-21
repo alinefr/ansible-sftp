@@ -17,3 +17,7 @@
 
   roles:
     - johanmeiring.sftp-server
+
+  tasks:
+    - user: name=peter groups=vagrant append=yes
+    - mount: opts=bind fstype=none state=mounted name=/home/peter/vagrant src=/vagrant

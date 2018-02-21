@@ -3,4 +3,4 @@
   - name: peter
     shell: False
     sftp_directories:
-      - /var/www
+      - /vagrant
